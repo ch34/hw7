@@ -7,7 +7,7 @@
   <tbody>
     <% @todolists.each do |todolist| %>
       <tr>
-        <td><%= todolist.list_due_date %></td>
+        <td><span class = <%= contains_todoitems(todolist) %>><%= todolist.list_due_date %></span></td>
         <td><%= link_to "#{todolist.list_name}", todolist %></td>
       </tr>
     <% end %>

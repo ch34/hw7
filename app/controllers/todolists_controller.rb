@@ -62,6 +62,31 @@ class TodolistsController < ApplicationController
     end
   end
 
+  def contains_todoitems(todolist)
+  todoitems = todolist.todoitems.all
+  color = ""
+  if todoitems.empty? || item_completed(todolist)
+    color = "green"
+  else
+    color = "red"
+  end
+  return color
+end
+helper_method :contains_todoitems
+
+def item_completed(todolist)
+  todoitems = todolist.todoitems.all
+  @bool = false
+  todoitems.each do |todoitem| 
+    if todoitem.done
+      @bool = true
+    else
+      @bool = false
+    end
+  end
+  return @bool
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todolist
