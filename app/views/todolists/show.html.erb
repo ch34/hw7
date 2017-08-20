@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<h1>
+  
+  <%= @todolist.list_name %>
+</h1>
+<p></p>
+<h2>
+  <strong>List due date:</strong>
+  <%= @todolist.list_due_date %>
+</h2>
+
+</p>
+
+<% @itemslist.each do |todoitem| %>
+      <tr>
+        <%= render todoitem %>
+      </tr>
+    <% end %>
+<%= will_paginate @itemslist %>
+
+
+<%= link_to 'Edit Todo List', edit_todolist_path(@todolist) %> |
+
+<%= link_to 'Delete Todo List', @todolist, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+
+<%= link_to 'Back', todolists_path %>
+
+</p>
+<%= link_to 'Add new Todo Item', new_todolist_todoitem_path(@todolist) %>

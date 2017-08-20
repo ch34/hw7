@@ -1,0 +1,31 @@
+<h1>Editing Todoitem</h1>
+
+<%= form_for([@todolist, @todoitem]) do |f| %>
+
+  <div class="field">
+    <%= f.label :due_date %>
+    <%= f.date_select :due_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_title %>
+    <%= f.text_field :task_title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :done %>
+    <%= f.check_box :done %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', todolist_todoitem_path(@todolist, @todoitem) %>

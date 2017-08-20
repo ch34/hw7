@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo Lists</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+<% if logged_in? %> 
+<div style='float: right;'>
+<%= link_to "Home", root_path %> |
+<%= link_to "You are logged in as #{current_user.login}", account_path(current_user) %> |
+<%= link_to "logout", logout_path, data: {method: :delete} %>
+</div>
+<% end %> 
+
+<% flash.each do |key, value| %> 
+<%= content_tag :p, value, id: key %> 
+<% end %> 
+
+
+    <%= yield %>
+  </body>
+</html>

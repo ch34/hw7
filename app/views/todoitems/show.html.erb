@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<p id="notice"><%= notice %></p>
+<h1>
+  <%= @todoitem.task_title %>
+</h1>
+
+
+<div>
+Due on: <%= @todoitem.due_date %>
+</div>
+<div>
+Status: <%= 
+if @todoitem.done == true
+	"Done"
+else
+	"Not Done"
+end
+	%>
+</div>
+<div>
+<%= @todoitem.description %>
+</div>
+
+
+
+<%= link_to 'Edit Todo Item', edit_todolist_todoitem_path(@todolist, @todoitem) %> |
+<%= link_to 'Delete Todo Item', todolist_todoitem_path(@todolist, @todoitem), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', todolist_path(@todolist) %>

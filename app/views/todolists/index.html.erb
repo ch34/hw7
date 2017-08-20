@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todolists</h1>
+
+<table>
+
+  <tbody>
+    <% @todolists.each do |todolist| %>
+      <tr>
+        <td><%= todolist.list_due_date %></td>
+        <td><%= link_to "#{todolist.list_name}", todolist %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= will_paginate @todolists %>
+
+<%= link_to 'New Todolist', new_todolist_path %>
